@@ -1,0 +1,87 @@
+<!-- <p>insert-post works!</p> -->
+<div class="col-6" style="margin-left: 25%;">
+    <form [formGroup]="authorForm" (ngSubmit)="submitForm()">
+        <div class="form-group">
+            <label for="typeahead-basic">Search for a tags: </label>
+            <input type="text" class="form-control" id="search" formControlName="tags" [ngbTypeahead]="search" [inputFormatter]="formatInput2" [resultFormatter]="formatInput2"  #t (selectItem)="select($event)" >        
+        </div>
+
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" formControlName="title">
+        </div>
+        <div *ngIf="authorForm.get('title')?.errors?.['required'] && authorForm.get('title')?.touched" class="alert alert-danger">
+            Title is required
+        </div>
+
+        <div class="form-group">
+            <label for="description">Description</label>
+            <textarea name="" class="form-control" id="description" cols="30" rows="10" formControlName="description"></textarea>
+        </div>
+        <div *ngIf="authorForm.get('description')?.errors?.['required'] && authorForm.get('description')?.touched" class="alert alert-danger">
+            Description is required
+        </div>
+
+        <div class="form-group">
+            <label for="shortDescription">Short Description</label>
+            <textarea name="" class="form-control" id="shortDescription" cols="10" rows="5" formControlName="shortDescription"></textarea>
+        </div>
+        <div *ngIf="authorForm.get('shortDescription')?.errors?.['required'] && authorForm.get('shortDescription')?.touched" class="alert alert-danger">
+            Short Description is required
+        </div>
+
+        <div class="form-group">
+            <label for="category">Category</label>
+            <div ngbDropdown class="d-inline-block" class="form-group">
+                <button type="button" class="btn btn-outline-secondary" id="dropdownBasic1" ngbDropdownToggle >
+                    <!-- ?? is null collasing operator -->
+                    <!-- if selected category is null then it will go to second one. -->
+                    {{selectedCategory ?? 'select Category'}}
+                </button>
+                <div ngbDropdownMenu>
+                    <button type="button" ngbDropdownItem *ngFor="let category of categories" (click)="selectCategory(category)">{{category.name}}</button>
+                    <!-- <button ngbDropdownItem>CSS</button>
+                    <button ngbDropdownItem>JavaScript</button> -->
+                </div>
+            </div>
+            
+                <!-- <select name="category" id="" class="form-control" formControlName="category">
+                    <option value="">Electronics</option>
+                    <option value="">Food</option>
+                    <option value="">Crockery</option>
+                </select> -->
+        </div>
+
+        <div class="form-group">
+            <label for="slug">slug</label>
+            <input type="text" class="form-control" id="slug" formControlName="slug">
+        </div>
+        <div *ngIf="authorForm.get('slug')?.errors?.['required'] && authorForm.get('slug')?.touched" class="alert alert-danger">
+            Slug is required
+        </div>
+    
+        <div class="form-group">
+            <label for="scheduleDate">Scehdule Date</label>
+            <!-- <input type="text" class="form-control" id="scheduleDate" formControlName="scheduleDate"> -->
+            <div class="input-group">
+                <input
+                    class="form-control"
+                    placeholder="yyyy-mm-dd"
+                    name="dp"
+                    formControlName="scheduleDate"
+                    ngbDatepicker
+                    #d="ngbDatepicker"
+                    [minDate]="todayDate"
+                />
+                <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"><fa-icon [icon]="date" class="text-primary"></fa-icon></button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="file">File</label>
+            <input type="file" class="form-control" id="file" (change)="selectFile($event)" formControlName="file">
+        </div>
+        <button type="submit" class="btn btn-success m-2" [disabled]="authorForm.status==='INVALID'">
+            submit
+        </button>
+    </form>
+</div>

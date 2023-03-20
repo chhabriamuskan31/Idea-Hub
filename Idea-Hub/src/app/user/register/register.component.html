@@ -1,0 +1,70 @@
+<p>register works!</p>
+<form [formGroup]="registrationForm" (ngSubmit)="submitForm()">
+    <div class="form-group">
+        <label for="title">First Name</label>
+        <input type="text" class="form-control" id="firstName" formControlName="FirstName">
+    </div>
+    <div class="form-group">
+        <label for="description">Last Name</label>
+        <input type="text" class="form-control" id="lastName" formControlName="LastName">
+    </div>
+    <div class="form-group">
+        <label for="title">Username</label>
+        <input type="text" class="form-control" id="UserName" formControlName="UserName">
+        
+        <!-- username should be unique -->
+         
+    </div>
+    <div class="form-group">
+        <label for="title">Email</label>
+        <input type="text" class="form-control" id="email" formControlName="Email">
+        
+    </div>
+    <div class="form-group">
+        <label for="title">Password</label>
+        <input type="text" class="form-control" id="Password" formControlName="Password">
+        
+         
+    </div>
+    <div class="form-group">
+        <label for="cpassword">Confirm Password</label>
+        <input type="text" class="form-control" id="cPassword" formControlName="cPassword">
+         
+        <!-- Confirm pass should match with password. -->
+    </div>
+
+    <div class="form-group">
+        <label for="title">Mobile</label>
+        <input type="text" class="form-control" id="phone" formControlName="Mobile">
+        
+         
+    </div>
+    <!-- <div class="form-group">
+        <label for="DOB">Date of Birth</label>
+        <div class="input-group">
+            <input formControlName="birthDate"
+                class="form-control" 
+                placeholder="yyyy-mm-dd" 
+                name="dp" 
+                ngbDatepicker 
+                #d="ngbDatepicker"
+                [maxDate]="tDate"
+            />
+            <button class="btn btn-outline-secondary bi bi-calendar3" (click)="d.toggle()" type="button"><fa-icon [icon]="icons.date" class="text-warning"></fa-icon></button>
+        </div>
+
+    </div> -->
+    
+    <div class="form-group">
+        <label for="description">Bio</label>
+        <textarea name="" class="form-control" id="bio" cols="30" rows="10" formControlName="Bio"></textarea>
+    </div>
+    
+    
+    <button type="submit" class="btn btn-success m-2" [disabled]="registrationForm.valid===false">
+        submit
+    </button>
+
+    <a href="" class="btn btn-info" routerLink='/loginForm'>Already an account?Click here to login</a>
+
+</form>

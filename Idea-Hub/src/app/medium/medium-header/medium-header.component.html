@@ -1,0 +1,23 @@
+<!-- <p>medium-header works!</p> -->
+<ul ngbNav [(activeId)]="active" class="nav-tabs" #nav="ngbNav">
+    <li [ngbNavItem]="1">
+        <a ngbNavLink>All</a>
+        <ng-template ngbNavContent>
+            <app-medium-content></app-medium-content>
+        </ng-template>
+    </li>
+    <li [ngbNavItem]="2">
+        <a ngbNavLink>Education</a>
+        <ng-template ngbNavContent>
+            <app-medium-content></app-medium-content>
+        </ng-template>
+    </li>
+    <li [ngbNavItem]="3">
+        <a ngbNavLink>Tech</a>
+        <ng-template ngbNavContent>
+            <app-medium-content></app-medium-content>
+        </ng-template>
+    </li>
+
+</ul>
+<div class="mt-2" [ngbNavOutlet]="nav"></div>

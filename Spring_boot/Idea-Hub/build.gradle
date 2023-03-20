@@ -1,0 +1,27 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '2.7.6'
+	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
+}
+
+group = 'com.sgt'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '14'
+
+//Repositories is something where dependencies are downloaded.
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	implementation 'org.springframework.boot:spring-boot-starter-jdbc'
+	implementation 'org.springframework.boot:spring-boot-starter-web'
+	// https://mvnrepository.com/artifact/com.microsoft.sqlserver/mssql-jdbc
+	implementation 'com.microsoft.sqlserver:mssql-jdbc:12.1.0.jre11-preview'
+	implementation 'org.springframework.boot:spring-boot-starter-mail:2.7.8'
+	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+}

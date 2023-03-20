@@ -1,0 +1,10 @@
+<!-- <p>toast works!</p> -->
+<ngb-toast *ngFor="let toast of toasttService.toasts"
+[class]="toast.classname"
+[delay]="toast.delay || 5000"
+>
+<!-- Text is not visible on screen bcs there is some delay -->
+<!-- *ngIf cannot work with ng-template it is working with a div bcs it converts a div into ng-template. -->
+<!-- Long polling it is checking again and again when it gets it will render the value. -->
+<ng-template [ngIf]="toast.textOrTpl !== ''">{{ toast.textOrTpl }}</ng-template>
+</ngb-toast>

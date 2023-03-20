@@ -1,0 +1,124 @@
+<p>view-details works!</p>
+<div class="row justify-content-space-around">
+    <div class="container col-md-9">
+      <h1 class="first-heading">Title of the blog</h1>
+      <!-- <h4 class="first-heading"> title tag</h4> -->
+      <a href="" class="btn btn-secondary mx-2">tag1</a>
+      <a href="" class="btn btn-secondary mx-2">tag2</a>
+      <a href="" class="btn btn-secondary mx-2">tag3</a>
+      <br>
+    </div>
+      
+      <div class="col-md-3">
+            <small>
+                <!-- {% if user.is_authenticated %}
+                {% if user.id == post.author.id %} -->
+                <span class="inline">
+                    <a href="" class="pencil-icon"><i class="fa-solid fa-pencil"></i></a>
+                    <br/>
+                    <a href="" class="delete-icon"><i class="fa-solid fa-trash-arrow-up"></i></a> 
+                </span>
+                <!-- {% endif %}   -->
+                <!-- {% endif %}     -->
+            </small>
+            <small class="post-author">-Posted by author name</small>
+            <!-- Category -->
+            <a href="">
+            <span class="badge text-bg-primary category" style="height:40%">
+            Category: 
+            some category
+            </span>
+            </a>
+      </div>
+      <br/> 
+</div>
+
+
+<hr>
+
+<!-- {% if post.header_image  %} -->
+<img src="" class="banner-img"  height="500" alt="blog-img">
+<!-- {% endif %} -->
+<br/><br/>
+    <div>
+        <strong>Description of the blog</strong>
+        <i class="d-block">Rules</i>
+        <ul>
+            <li>Rule1</li>
+            <li>Rule2</li>
+            <li>Rule3</li>
+            <li>Rule4</li>
+            <li>Rule5</li>
+        </ul>
+        <!-- see Html sanitizer theory -->
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis iusto voluptatem tempore inventore qui <span style="color: red;">harum dolore voluptates cumque, amet commodi? Deserunt, veniam tempora sit, recusandae,</span> aliquid aut rerum neque beatae magni voluptatum provident est veritatis et. Excepturi vitae modi accusamus <i>rem magnam illum eius, qui dolor molestiae esse explicabo dolore! Impedit ex, nam corrupti molestiae veritatis accusamus hic illum distinctio iusto quod quisquam illo similique, a necessitatibus </i> atque magni dolore laudantium quasi? Ipsum dolore laborum ex dolorum natus cum illum, numquam, consequatur nostrum beatae molestiae accusantium magnam saepe obcaecati est minus velit? Sint officiis expedita doloremque nisi, adipisci illum dicta!</p>
+    </div>
+    <!-- insert blogComponent = reactive form template author side-- title,content,textArea and ngb date picker, ngb dropdown -->
+<br>
+<br><br>
+<div class="container shadow p-3 mb-5 bg-body rounded" style="text-align: center;">
+<h2 style="text-align:center;color:#1e3c72; margin-top: 10px;font-weight: bolder">Comments: </h2>
+
+<!-- {% if not post.comments.all %} -->
+No Comments yet.. <a href="" >Add Comment</a>
+<!-- {% else %} -->
+<br/>
+
+<!-- <a href="" >Add Comment</a> -->
+<br/><br/><br/>
+
+  <!-- {% for comment in post.comments.all %} -->
+     <strong>comment name -->added on</strong>
+     <br/>
+     Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam incidunt nam odit recusandae expedita. Nulla sit dolore et iste ea?
+     <br/>
+     <hr>
+  <!-- {% endfor %} -->
+</div>
+<!-- {% endif %} -->
+
+
+<br/>
+
+<!-- <div class="card mb-3 shadow p-3 mb-5 bg-body rounded" style="max-width: 700px; position: relative;left: 22%;text-align: center;border: 0cm;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        {% if post.author.profile.profile_pic %}
+        <img src="{{post.author.profile.profile_pic.url}}" class="img-fluid rounded" alt="profile-pic">
+        {% else %}
+        <img src="{% static 'images/user-icon.webp' %}" width="200" height="200">
+        {% endif %}
+      </div>
+      <div class="col-md-8">
+        <div class="card-body" style="font-weight: 500;">
+          <h3 class="card-title" >
+            <a href="{% url 'show_profile_page' post.author.profile.id %}" style="text-decoration:none;color:#1e3c72;">{{post.author.profile.user}}</a>
+            </h3>
+            <br>
+          <p class="card-text">{{post.author.profile.bio}}</p>
+          <p class="card-text"><small class="text-muted">
+<br>
+            {% if post.author.profile.website_url %}
+            <a href="{{ post.author.profile.website_url }}"><i class="fa-brands fa-internet-explorer px-2 fa-2x fa-bounce" style="color: #1e3c72;"></i></a>
+            {% endif %}
+
+            {% if post.author.profile.facebook_url %}
+            <a href="{{ post.author.profile.facebook_url }}"><i class="fa-brands fa-facebook px-2 fa-2x fa-bounce" style="color: #1e3c72;"></i></a>
+            {% endif %}
+
+            {% if post.author.profile.twitter_url %}
+            <a href="{{ post.author.profile.twitter_url }}"><i class="fa-brands fa-twitter px-2 fa-2x fa-bounce" style="color: #1e3c72;"></i></a>
+            {% endif %}
+
+            {% if post.author.profile.instagram_url %}
+            <a href="{{ post.author.profile.instagram_url }}"><i class="fa-brands fa-instagram px-2 fa-2x fa-bounce" style="color: #1e3c72;"></i></a>
+            {% endif %}
+
+          </small></p>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<br/>
+<!-- {% endblock %} -->
