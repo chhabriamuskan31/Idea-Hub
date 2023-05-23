@@ -83,16 +83,20 @@ public class BlogService {
         Map<String,Object> file = blogRepository.getFileName(postID);
 
         String fileName = (String)file.get("fileName");
-        if(fileName!=null){
-            Path filePath = Paths.get("uploads/"+fileName);
-
+        Path filePath;
+        if(fileName!=null) {
+             filePath = Paths.get("uploads/" + fileName);
+        }
+        else{
+             filePath = Paths.get("uploads/default.jpeg");
+        }
             try {
                 fileBytes = Files.readAllBytes(filePath);
             }
             catch (IOException e){
                 e.printStackTrace();
             }
-        }
+
         return fileBytes;
     }
 
